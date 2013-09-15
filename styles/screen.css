@@ -1,0 +1,406 @@
+@charset "UTF-8";
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption,th,td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q,blockquote {
+    quotes: none;
+}
+
+q:before,q:after,blockquote:before,blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary {
+    display: block;
+}
+
+.pln {
+    color: #bd3613;
+}
+
+.str {
+    color: #269186;
+}
+
+.kwd {
+    color: #859900;
+}
+
+.com {
+    color: #586175;
+    font-style: italic;
+}
+
+.typ {
+    color: #b58900;
+}
+
+.lit {
+    color: #2aa198;
+}
+
+.pun {
+    color: #839496;
+}
+
+.opn {
+    color: #839496;
+}
+
+.clo {
+    color: #839496;
+}
+
+.tag {
+    color: #268bd2;
+}
+
+.atn {
+    color: #586175;
+}
+
+.atv {
+    color: #2aa198;
+}
+
+.dec {
+    color: #268bd2;
+}
+
+.var {
+    color: #268bd2;
+}
+
+.fun {
+    color: #FF0000;
+}
+
+pre.prettyprint {
+    background-color: #fdf6e3;
+    padding: 10px;
+    border: 1px solid #E1E1E8;
+}
+
+ol.linenums {
+    color: #4c666c;
+}
+
+ol.linenums li {
+    line-height: 18px;
+    padding-left: 12px;
+    list-style-type: decimal;
+    color: #cecece;
+}
+
+ol.linenums li code {
+    padding-left: 1em;
+}
+
+@font-face {
+    font-family:"Lobster";src:url('fonts/lobster/lobster-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family:"Source Code Pro";src:url('fonts/source_code_pro/SourceCodePro-Regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family:"Telex";src:url('fonts/telex/telex-regular-webfont.ttf') format('truetype');
+}
+
+body {
+    font-family: "Lobster";
+    font-size: 42px;
+    line-height: 1.5em;
+    color: #424242;
+    text-shadow: 0 2px 0 rgba(255,255,255,0.45);
+}
+
+a {
+    color: #398235;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: circle;
+    margin-left: 1em;
+    font-size: 0.7619em;
+}
+
+code,strong {
+    color: #6d0019;
+}
+
+pre {
+    font-family: "Source Code Pro" !important;
+    font-size: 0.42857em !important;
+    line-height: 1.38em;
+}
+
+pre code {
+    text-shadow: none;
+}
+
+pre ol.linenums li {
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 1em;
+    line-height: 1.35em;
+    list-style-position: inside;
+}
+
+.big {
+    text-align: center;
+    font-size: 2.38095em;
+    line-height: 1.2em;
+}
+
+.legend {
+    font-size: 0.57143em;
+}
+
+body {
+    background-image: url('../img/light_wool.png?1350993373'),-webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #c9de96), color-stop(44%, #8ab66b), color-stop(100%, #398235));
+    background-image: url('../img/light_wool.png?1350993373'),-webkit-radial-gradient(center, #c9de96 0%,#8ab66b 44%,#398235 100%);
+    background-image: url('../img/light_wool.png?1350993373'),-moz-radial-gradient(center, #c9de96 0%,#8ab66b 44%,#398235 100%);
+    background-image: url('../img/light_wool.png?1350993373'),-o-radial-gradient(center, #c9de96 0%,#8ab66b 44%,#398235 100%);
+    background-image: url('../img/light_wool.png?1350993373'),radial-gradient(center, #c9de96 0%,#8ab66b 44%,#398235 100%);
+}
+
+pre {
+    border: 3px solid #398235;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #398235;
+}
+
+.example pre {
+    max-height: 400px;
+}
+
+.example pre ol {
+    max-height: 400px;
+}
+
+.legend {
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+}
+
+.example pre.prettyprint {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.example pre.prettyprint ol {
+    overflow: auto;
+    position: relative;
+}
+
+.example pre.prettyprint ol:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 2.2em;
+    background-color: #cecece;
+}
+
+.example pre.prettyprint:after {
+    content: '';
+    display: block;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: -65px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px #398235;
+}
+
+.example pre.prettyprint.lang-coffeescript:after {
+    background-image: url('../img/coffeescript-logo.svg?1350217712'),-webkit-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
+    background-image: url('../img/coffeescript-logo.svg?1350217712'),-moz-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
+    background-image: url('../img/coffeescript-logo.svg?1350217712'),-o-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
+    background-image: url('../img/coffeescript-logo.svg?1350217712'),linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
+    background-size: auto 60px;
+    background-position: -10px -2px;
+}
+
+.example pre.prettyprint.lang-javascript:after {
+    content: 'JS';
+    background-image: -webkit-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
+    background-image: -moz-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
+    background-image: -o-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
+    background-image: linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 30px;
+    font-family: 'Lobster';
+    line-height: 1.85em;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    margin: 20px auto;
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.step.active {
+    opacity: 1 !important;
+}
+
+.slide {
+    font-size: 1.14286em;
+    line-height: 1.85em;
+    text-align: center;
+    padding: 90px 0;
+    border-top: 3px solid #398235;
+    border-bottom: 3px solid #398235;
+}
+
+.big li {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+#step-1 .info, #step-2 .info {
+    font-family: 'Telex';
+    font-size: 0.66667em;
+    letter-spacing: 1.35em;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 0.4em;
+}
+
+#step-1 h1 {
+    border-top: 3px solid #398235;
+    padding: 90px 0;
+}
+
+#step-1 img {
+    width: 300px;
+    margin-left: 280px;
+}
+
+#step-1 .subtitle {
+    font-size: 0.80952em;
+    letter-spacing: 0;
+    text-align: center;
+    border-bottom: 3px solid #398235;
+    padding-bottom: 0.2em;
+}
+
+#step-1 .author {
+    position: absolute;
+    bottom: -30px;
+    right: 40px;
+    font-size: 0.47619em;
+}
+
+#step-2 ol {
+    border-top: 3px solid #398235;
+    padding-top: 30px;
+}
+
+#step-4 ul {
+    float: left;
+    padding-top: 50px;
+}
+
+#step-4 img {
+    width: 500px;
+    float: right;
+    border: 3px solid #398235;
+}
+
+#step-5 span {
+    float: left;
+    padding-top: 250px;
+}
+
+#step-5 .screenshots {
+    width: 400px;
+    float: right;
+}
+
+#step-5 img {
+    width: 400px;
+    border: 3px solid #398235;
+}
+
+#step-7 img {
+    border: 3px solid #398235;
+    margin-top: 30px;
+    margin-left: 200px;   
+}
+
+#step-19 ul, #step-19 img {
+    padding-top: 50px;
+}
+
+#step-19 img {
+    padding-top: 50px;
+    margin-left: 250px;
+}
+
+#step-21 img {
+    width: 300px;
+    padding-top: 50px;
+    margin-left: 250px;
+}
+
+#step-21 .legend {
+    border-top: 3px solid #398235;
+}
