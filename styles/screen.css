@@ -395,6 +395,18 @@ pre {
     margin-left: 250px;
 }
 
+#step-20 .left {
+    float: left;    
+}
+
+#step-20 img {
+    float: right;
+}
+
+#step-20 ul {
+    margin-top: 30px;
+}
+
 #step-21 img {
     width: 300px;
     padding-top: 50px;
@@ -403,4 +415,8 @@ pre {
 
 #step-21 .legend {
     border-top: 3px solid #398235;
+}
+
+#step-22 img {
+    width: 800px;
 }

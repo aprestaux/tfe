@@ -109,15 +109,15 @@
       <div class="step" data-x="350" data-y="4000" data-z="-3000">
         <span>Monitoring</span>
         <pre class="prettyprint linenums lang-javascript">
-			<code>function increase(n) {
-			  result = n + 1;
-			  return result;
-			}
+<code>function increase(n) {
+  result = n + 1;
+  return result;
+}
 
-			function decrease() {
-			  result -= 1;
-			  return result;
-			}</code>
+function decrease() {
+  result -= 1;
+  return result;
+}</code>
 		</pre>
       </div>
 
@@ -145,12 +145,36 @@
       </div>
 
       <div class="step" data-x="100" data-y="3000" data-z="-1500">
-        <span>Prototype</span>
-        <ul>
-        	<li>Concours de pronostics hippiques</li>
-        	<li>Reprise de la ligue 1</li>
-        </ul>
-        <img src="img/logo_orlc.png" /> 
+        <div class="left">
+	        <span>Développement par les tests</span>
+	        <ul>
+	        	<li>Code plus fiable</li>
+	        	<li>Intégration continue</li>
+	        </ul>
+        </div>
+        <img src="img/notest.png" />
+      </div>
+
+      <div class="step" data-x="100" data-y="2500" data-z="-1500">
+        <span>Mockito / JUnit / Fest Assertions</span>
+<pre class="prettyprint linenums lang-java"><code>import static org.mockito.Mockito.*; 
+import static org.junit.Assert.*;
+
+@Test
+public void iteratorWillReturnHelloWorld(){ 
+	//arrange
+	Iterator i=mock(Iterator.class); 
+	when(i.next()).thenReturn("Hello").thenReturn("World"); 
+	//act
+	String result=i.next()+" "+i.next();
+	//assert
+	assertThat(result).isEqualTo("Hello World");
+}</code></pre>
+      </div>
+
+      <div class="step" data-x="200" data-y="3000" data-z="-1500">
+	    <span>Prototype Bootstrap</span>
+        <img src="img/boot-form.jpg" />
       </div>
 
       <div class="step" data-rotate-y="180" data-rotate-x="90" data-y="-400" data-z="900">
