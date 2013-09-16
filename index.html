@@ -13,14 +13,14 @@
 
     <div id="impress">
 
-      <div class="step" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-90" data-rotate="-90" data-scale="2">
+      <div class="step" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-180" data-rotate="-90" data-scale="2">
         <p class="info">Travail de Fin d'Etudes</p>
-        <h1><img src="img/rtlnet.gif" alt="CoffeeScript"/></h1>
+        <h1><img src="img/rtlnet.png" alt="CoffeeScript"/></h1>
         <p class="subtitle">Etude et développement des applications RTLNet</p>
         <p class="author">Angela Prestaux - Promo 2013</p>
       </div>
 
-      <div class="step" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-90">
+      <div class="step" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-180">
         <p class="info">Plan</p>
         <ol>
             <li>Présentation de <strong>RTLNet</strong></li>
@@ -34,13 +34,13 @@
         </ol>
       </div>
 
-      <div class="step big slide" data-x="-750" data-y="3000" data-z="-1600">
+      <div class="step big slide" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-90">
         RTLNet
         <br/>
         Filiale digitale de RTL
       </div>
 
-      <div class="step" data-x="-650" data-y="3000" data-z="-1600">
+      <div class="step" data-x="-650" data-y="3000" data-z="-1600" data-rotate-x="-90">
         <ul>
             <li>Fondée en 2000</li>
             <li>30 salariés</li>
@@ -48,7 +48,7 @@
         <img src="img/bureau.png" />  
       </div>
 
-       <div class="step" data-x="-550" data-y="3000" data-z="-1600">
+       <div class="step" data-x="-550" data-y="3000" data-z="-1600" data-rotate-x="-90">
         <span>Plus de 20 projets</span>
         <div class="screenshots">
             <img src="img/rtl.png" />
@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <div class="step big slide" data-x="-550" data-y="3000" data-z="-1500" data-rotate-x="-90">
+      <div class="step big slide" data-x="-550" data-y="3000" data-z="-1500">
         Organisation du travail
         <br/>
         Les méthodes Agile dans l'entreprise
@@ -165,15 +165,15 @@
         <img src="img/summary.png" />
       </div>
 
-      <div class="step big slide" data-x="-250" data-y="3000" data-z="-1500" data-rotate-x="-90">
+      <div class="step big slide" data-x="-250" data-y="3000" data-z="-1500" data-rotate-x="-180">
         Projets
       </div>
 
-      <div class="step big slide" data-x="-150" data-y="3000" data-z="-1400">
+      <div class="step big slide" data-x="-150" data-y="3000" data-z="-1500" data-rotate-x="-180">
         Concours de pronostics : pronostics.rtl.fr
       </div>
 
-      <div class="step" data-x="-50" data-y="3000" data-z="-1500">
+      <div class="step" data-x="-50" data-y="3000" data-z="-1500" data-rotate-x="-180">
         <span>Contexte & Besoin</span>
         <ul style="margin-top: 30px;">
             <li>Concours de pronostics hippiques</li>
@@ -182,7 +182,7 @@
         <img style="margin-top: 50px;margin-left: 150px;" src="img/foot.png" />
       </div>
 
-      <div class="step" data-x="100" data-y="3000" data-z="-1500">
+      <div class="step" data-x="100" data-y="3000" data-z="-1500" data-rotate-x="-180">
         <div style="float: left;">
             <span>Développement par les tests</span>
             <ul style="margin-top: 30px;">
@@ -193,7 +193,7 @@
         <img style="float: right;" src="img/notest.png" />
       </div>
 
-      <div class="step" data-x="100" data-y="3500" data-z="-1500">
+      <div class="step" data-x="100" data-y="3500" data-z="-1500" data-rotate-x="-180">
         <span>Test first</span>
 <pre class="prettyprint linenums"><code>@Test
 public void computeEarningsForGame1MaxScore() {
@@ -235,7 +235,7 @@ private FootballGame game1() {
 }</code></pre>
       </div>
 
-      <div class="step" data-x="100" data-y="4000" data-z="-1500">
+      <div class="step" data-x="100" data-y="4000" data-z="-1500" data-rotate-x="-180">
         <span>En Groovy...</span>
 <pre class="prettyprint linenums lang-java"><code>@Test
 public void computeEarningsForGame1MaxScore() {
@@ -279,12 +279,12 @@ private FootballGame game1() {
 }</code></pre>
       </div>
 
-      <div class="step" data-x="200" data-y="3000" data-z="-1500">
+      <div class="step" data-x="200" data-y="3000" data-z="-1500" data-rotate-x="-180">
         <span>Modèle de données & Algorithme</span>
         <img style="margin-left:80px;margin-top:30px;border:3px solid #398235;" src="img/prono_datamodel.png"/>
       </div>
 
-      <div class="step" data-x="200" data-y="3500" data-z="-1500">
+      <div class="step" data-x="200" data-y="3500" data-z="-1500" data-rotate-x="-180">
         <span>Calcul des points</span>
 <pre class="prettyprint linenums lang-java"><code>public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, 
     FootballGame game, String favoriteTeamExternalId) {
@@ -329,7 +329,7 @@ private FootballGame game1() {
 }</code></pre>
       </div>
 
-      <div class="step" data-x="200" data-y="4000" data-z="-1500">
+      <div class="step" data-x="200" data-y="4000" data-z="-1500" data-rotate-x="-180">
         <span>Calcul du rang</span>
 <pre class="prettyprint linenums lang-java"><code>public void computeRankings(FootballMatchDay matchDay) {
     computeRoundPoints(matchDay);
@@ -377,12 +377,12 @@ public void computeRoundPoints(FootballMatchDay matchDay) {
 }</code></pre>
       </div>
 
-      <div class="step" data-x="300" data-y="3000" data-z="-1500">
+      <div class="step" data-x="300" data-y="3000" data-z="-1500" data-rotate-x="-180">
         <span>Prototype Bootstrap</span>
         <img style="width: 850px" src="img/boot-form.jpg" />
       </div>
 
-      <div class="step" data-x="400" data-y="3000" data-z="-1500">
+      <div class="step" data-x="400" data-y="3000" data-z="-1500" data-rotate-x="-180">
         <span>Responsive design</span>
         <img style="width: 700px;margin-left: 100px;" src="img/prono_desktop.png" />
         <div style="width: 850px; margin-left: 150px;">
@@ -392,7 +392,7 @@ public void computeRoundPoints(FootballMatchDay matchDay) {
         </div>
       </div>
 
-      <div class="step big slide" data-x="500" data-y="3000" data-z="-1600" data-rotate-x="-90">
+      <div class="step big slide" data-x="500" data-y="3000" data-z="-1600">
         Application mobile : Snappy
       </div>
 
