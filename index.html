@@ -112,15 +112,38 @@
 
       <div class="step" data-x="100" data-y="3000" data-z="-3000">
         <span>Script Groovy</span>
-        <pre class="prettyprint linenums lang-javascript">
-<code>function increase(n) {
-  result = n + 1;
-  return result;
-}
+        <pre class="prettyprint linenums">
+<code>def deployWebapp(String version, String tomcatConfResolver) {
+	mkdirs()
 
-function decrease() {
-  result -= 1;
-  return result;
+	assertExists()
+
+	log "Deploying $name - $version"
+
+	inTempDirectoy { File tempDir ->
+		def war = new File(tempDir, "ROOT.war")
+
+		new NexusArtifact(name: name, version: version, extension: 'war')
+			.downloadTo(war)
+
+		stopTomcat()
+
+		updateTomcatConf(version, tomcatConfResolver)
+
+		new File("$webappDir/webapps").deleteDir()
+		new File("$webappDir/work").deleteDir()
+
+		new File("$webappDir/webapps").mkdirs()
+		new File("$webappDir/work").mkdirs()
+
+		log "Copying war to $webappDir/webapps/ROOT.war"
+
+		new AntBuilder().move(file: war, 
+			toFile: new File(webappDir, "webapps/ROOT.war"), 
+			overwrite: true)
+
+		startTomcat()
+	}
 }</code>
 		</pre>
       </div>
@@ -171,19 +194,44 @@ function decrease() {
       </div>
 
       <div class="step" data-x="100" data-y="3500" data-z="-1500">
-        <span>Mockito / JUnit / Fest Assertions</span>
-<pre class="prettyprint linenums lang-java"><code>import static org.mockito.Mockito.*; 
-import static org.junit.Assert.*;
+        <span>Test first</span>
+<pre class="prettyprint linenums"><code>@Test
+public void computeEarningsForGame1MaxScore() {
+	FootballBetPronostic pronostic = FootballBetPronostic.forGame(gameOfTheDay1());
+	int expectedAmount = 0;
+	String explanation = "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)";
 
-@Test
-public void iteratorWillReturnHelloWorld(){ 
-	//arrange
-	Iterator i=mock(Iterator.class); 
-	when(i.next()).thenReturn("Hello").thenReturn("World"); 
-	//act
-	String result=i.next()+" "+i.next();
-	//assert
-	assertThat(result).isEqualTo("Hello World");
+	pronostic.setGameOutcome(FootballGameOutcome.HOME_VICTORY);
+	expectedAmount += FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME 
+		+ FootballEarnings.FAVORITE_TEAM_BONUS;
+	explanation += " : résultat +" + FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME;
+	explanation += " bonus équipe favorite +" + FootballEarnings.FAVORITE_TEAM_BONUS;
+
+	pronostic.setScore(new FootballScore(2, 1));
+	expectedAmount += FootballEarnings.SCORE;
+	explanation += " score +" + FootballEarnings.SCORE;
+
+	pronostic.withHomeStrikers(damien, olivier);
+	pronostic.withAwayStrikers(fred);
+	expectedAmount += 3 * FootballEarnings.STRIKER;
+	explanation += " buteurs +" + 3 * FootballEarnings.STRIKER;
+
+	FootballBetEarnings result = FootballEarningsComputer
+		.computeEarnings(pronostic, gameOfTheDay1(), "webdev");
+
+	assertThat(result.getAmount()).isEqualTo(expectedAmount);
+	assertThat(result.getGoodPronosticCount()).isEqualTo(1);
+	assertThat(result.getGuessedStrikerCount()).isEqualTo(3);
+	assertThat(result.getGoodPronosticCountForFavoriteTeam()).isEqualTo(1);
+	assertThat(result.getExplanation()).isEqualTo(explanation);
+}
+
+private FootballGame game1() {
+	FootballGameResult result = new FootballGameResult().withScore(2, 1);
+	result.setHomeStrikers(new FootballGameStriker(damien, "56'"), new FootballGameStriker(olivier, "87'"));
+	result.setAwayStrikers(new FootballGameStriker(fred, "88'"));
+
+	return game("game1", result);
 }</code></pre>
       </div>
 
@@ -307,3 +355,108 @@ sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
+
+public void computeMatchDay(FootballMatchDay matchDay, Date currentDate) {
+        if (!matchDay.isFinishedAt(currentDate)) {
+            throw new IllegalStateException("MatchDay is not finished");
+        }
+
+        Computation computation = Computation.startsNow();
+
+        footballBetService.computeEarnings(matchDay);
+        footballRankingService.computeRankings(matchDay);
+
+        computation.setEndDate(new Date());
+
+        matchDay.setComputation(computation);
+    }
+    
+    public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, FootballGame game, String favoriteTeamExternalId) {
+        FootballBetEarnings result = new FootballBetEarnings();
+
+        if (game.getResult() == null || pronostic == null || pronostic.getGameOutcome() == null || game.isPostponed()) {
+            return null;
+        }
+
+        result.setExplanation(game.getLiteralFullResult() + " :");
+
+        if (game.hasOutcome(pronostic.getGameOutcome())) {
+            result.increaseAmount("résultat", game.isGameOfTheDay() ? FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME : FootballEarnings.GAME_OUTCOME);
+            result.setGoodPronosticCount(1);
+
+            if (game.hasTeam(favoriteTeamExternalId)) {
+                result.increaseAmount("bonus équipe favorite", FootballEarnings.FAVORITE_TEAM_BONUS);
+                result.increaseGoodPronosticCountForFavoriteTeam();
+            }
+        } else {
+            result.increaseAmount("résultat", game.isGameOfTheDay() ? -FootballBetCharges.GAMEOFTHEDAY_GAME_OUTCOME : -FootballBetCharges.GAME_OUTCOME);
+        }
+
+        if (game.isGameOfTheDay()) {
+            if (pronostic.hasScore()) {
+                int scoreEarnings = -FootballBetCharges.SCORE;
+                if (game.hasOutcome(pronostic.getGameOutcome())) {
+                    if (game.hasScore(pronostic.getScore())) {
+                        scoreEarnings = FootballEarnings.SCORE;
+                    } else {
+                        scoreEarnings = 0;
+                    }
+                }
+
+                result.increaseAmount("score", scoreEarnings);
+            }
+
+            if (pronostic.hasStrikers()) {
+                result.updateStrikersEarnings(pronostic, game.getResult());
+            }
+        }
+
+        return result;
+    }
+
+public void computeRankings(FootballMatchDay matchDay) {
+        computeRoundPoints(matchDay);
+        computeRanks(matchDay, Period.ROUND);
+        computeSeasonPoints(matchDay);
+        computeRanks(matchDay, Period.SEASON);
+
+        if (footballSponsorshipService.computeSponsorshipEarnings(matchDay)) {
+            computeRanks(matchDay, Period.ROUND);
+            computeRanks(matchDay, Period.SEASON);
+        }
+    }
+    
+    public void computeRoundPoints(FootballMatchDay matchDay) {
+        for (Gamer gamer : findGamers(matchDay, Period.ROUND)) {
+            FootballRanking ranking = FootballRanking.forMatchDay(matchDay);
+            ranking.setPeriod(Period.ROUND);
+            ranking.setGamer(gamer);
+
+            // yesterday's activity
+            FootballRanking yesterdayRanking = findYesterdayRank(matchDay, Period.ROUND, gamer);
+
+            if (yesterdayRanking != null) {
+                ranking.readPreviousRank(yesterdayRanking);
+            } else {
+                ranking.setBonus(FootballEarnings.ROUND_START_BONUS);
+                FootballSponsorship sponsorship = footballSponsorshipService.getSponsor(matchDay.getCompetition(), gamer.getProfileId());
+                if (sponsorship != null && !sponsorship.isEarnedRegistrationBonus() && sponsorship.isDateCompliant(matchDay)) {
+                   ranking.addSponsorshipBonus(FootballEarnings.SPONSORED_REGISTRATION);
+                }
+            }
+
+            // today's bet
+            FootballBet bet = footballBetService.findBet(matchDay, gamer.getProfileId());
+
+            ranking.readBet(bet);
+
+            if (yesterdayRanking != null || bet != null) {
+
+                if (bet != null && bet.getRank() == 1) {
+                    ranking.addReward(new FootballEarnedReward(FootballReward.TROPHEE, matchDay.getIndex()));
+                }
+
+                updateRank(matchDay, ranking);
+            }
+        }
+    }
