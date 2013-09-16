@@ -23,14 +23,14 @@
       <div class="step" data-x="-750" data-y="3000" data-z="-1600" data-rotate-x="-90">
         <p class="info">Plan</p>
         <ol>
-        	<li>Présentation de <strong>RTLNet</strong></li>
-        	<li>Organisation du travail</li>
-        	<li>Projets
-        		<ul>
-        			<li>Concours de pronostics <strong>pronostics.rtl.fr</strong></li>
-        			<li>Application mobile <strong>Snappy</strong></li>
-    			</ul>
-        	</li>
+            <li>Présentation de <strong>RTLNet</strong></li>
+            <li>Organisation du travail</li>
+            <li>Projets
+                <ul>
+                    <li>Concours de pronostics <strong>pronostics.rtl.fr</strong></li>
+                    <li>Application mobile <strong>Snappy</strong></li>
+                </ul>
+            </li>
         </ol>
       </div>
 
@@ -41,20 +41,20 @@
       </div>
 
       <div class="step" data-x="-650" data-y="3000" data-z="-1600">
-      	<ul>
-      		<li>Fondée en 2000</li>
-      		<li>30 salariés</li>
-      	</ul>
-      	<img src="img/bureau.png" />  
+        <ul>
+            <li>Fondée en 2000</li>
+            <li>30 salariés</li>
+        </ul>
+        <img src="img/bureau.png" />  
       </div>
 
        <div class="step" data-x="-550" data-y="3000" data-z="-1600">
-      	<span>Plus de 20 projets</span>
-      	<div class="screenshots">
-	      	<img src="img/rtl.png" />
-	      	<img src="img/orlc.png" />
-	      	<img src="img/chronos.png" />
-      	</div>
+        <span>Plus de 20 projets</span>
+        <div class="screenshots">
+            <img src="img/rtl.png" />
+            <img src="img/orlc.png" />
+            <img src="img/chronos.png" />
+        </div>
       </div>
 
       <div class="step big slide" data-x="-550" data-y="3000" data-z="-1500" data-rotate-x="-90">
@@ -64,11 +64,11 @@
       </div>
 
       <div class="step" data-x="-450" data-y="3000" data-z="-1500">
-    	<span>Méthode <strong>Scrum</strong></span>
-    	<ul style="margin-top:30px;">
-    		<li>Itérations</li>
-    		<li>Réunion de priorisation</li>
-    	</ul>
+        <span>Méthode <strong>Scrum</strong></span>
+        <ul style="margin-top:30px;">
+            <li>Itérations</li>
+            <li>Réunion de priorisation</li>
+        </ul>
         <img style="border:3px solid #398235;margin-top:30px;margin-left:200px;" src="img/scrum.jpg" />
       </div>
 
@@ -96,7 +96,7 @@
 
        <div class="step" data-x="-250" data-y="3000" data-z="-3000">
         <span>Monitoring</span>
-       	<img style="width:850px;" src="img/ecrans.png" />
+        <img style="width:850px;" src="img/ecrans.png" />
       </div>
 
       <div class="step" data-x="-350" data-y="3000" data-z="-1500">
@@ -114,38 +114,38 @@
         <span>Script Groovy</span>
         <pre class="prettyprint linenums">
 <code>def deployWebapp(String version, String tomcatConfResolver) {
-	mkdirs()
+    mkdirs()
 
-	assertExists()
+    assertExists()
 
-	log "Deploying $name - $version"
+    log "Deploying $name - $version"
 
-	inTempDirectoy { File tempDir ->
-		def war = new File(tempDir, "ROOT.war")
+    inTempDirectoy { File tempDir ->
+        def war = new File(tempDir, "ROOT.war")
 
-		new NexusArtifact(name: name, version: version, extension: 'war')
-			.downloadTo(war)
+        new NexusArtifact(name: name, version: version, extension: 'war')
+            .downloadTo(war)
 
-		stopTomcat()
+        stopTomcat()
 
-		updateTomcatConf(version, tomcatConfResolver)
+        updateTomcatConf(version, tomcatConfResolver)
 
-		new File("$webappDir/webapps").deleteDir()
-		new File("$webappDir/work").deleteDir()
+        new File("$webappDir/webapps").deleteDir()
+        new File("$webappDir/work").deleteDir()
 
-		new File("$webappDir/webapps").mkdirs()
-		new File("$webappDir/work").mkdirs()
+        new File("$webappDir/webapps").mkdirs()
+        new File("$webappDir/work").mkdirs()
 
-		log "Copying war to $webappDir/webapps/ROOT.war"
+        log "Copying war to $webappDir/webapps/ROOT.war"
 
-		new AntBuilder().move(file: war, 
-			toFile: new File(webappDir, "webapps/ROOT.war"), 
-			overwrite: true)
+        new AntBuilder().move(file: war, 
+            toFile: new File(webappDir, "webapps/ROOT.war"), 
+            overwrite: true)
 
-		startTomcat()
-	}
+        startTomcat()
+    }
 }</code>
-		</pre>
+        </pre>
       </div>
 
       <div class="step" data-x="-350" data-y="3000" data-z="-1500">
@@ -156,7 +156,7 @@
 
       <div class="step" data-x="350" data-y="3500" data-z="-3000">
         <span>Kibana</span>
-       	<img style="width:850px;" src="img/kibana.png" />
+        <img style="width:850px;" src="img/kibana.png" />
       </div>
 
       <div class="step" data-x="-350" data-y="3000" data-z="-1500">
@@ -176,19 +176,19 @@
       <div class="step" data-x="-50" data-y="3000" data-z="-1500">
         <span>Contexte & Besoin</span>
         <ul style="margin-top: 30px;">
-        	<li>Concours de pronostics hippiques</li>
-        	<li>Reprise de la ligue 1</li>
+            <li>Concours de pronostics hippiques</li>
+            <li>Reprise de la ligue 1</li>
         </ul>
         <img style="margin-top: 50px;margin-left: 150px;" src="img/foot.png" />
       </div>
 
       <div class="step" data-x="100" data-y="3000" data-z="-1500">
         <div style="float: left;">
-	        <span>Développement par les tests</span>
-	        <ul style="margin-top: 30px;">
-	        	<li>Code plus fiable</li>
-	        	<li>Intégration continue</li>
-	        </ul>
+            <span>Développement par les tests</span>
+            <ul style="margin-top: 30px;">
+                <li>Code plus fiable</li>
+                <li>Intégration continue</li>
+            </ul>
         </div>
         <img style="float: right;" src="img/notest.png" />
       </div>
@@ -197,91 +197,199 @@
         <span>Test first</span>
 <pre class="prettyprint linenums"><code>@Test
 public void computeEarningsForGame1MaxScore() {
-	FootballBetPronostic pronostic = FootballBetPronostic.forGame(gameOfTheDay1());
-	int expectedAmount = 0;
-	String explanation = "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)";
+    FootballBetPronostic pronostic = FootballBetPronostic.forGame(gameOfTheDay1());
+    int expectedAmount = 0;
+    String explanation = "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)";
 
-	pronostic.setGameOutcome(FootballGameOutcome.HOME_VICTORY);
-	expectedAmount += FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME 
-		+ FootballEarnings.FAVORITE_TEAM_BONUS;
-	explanation += " : résultat +" + FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME;
-	explanation += " bonus équipe favorite +" + FootballEarnings.FAVORITE_TEAM_BONUS;
+    pronostic.setGameOutcome(FootballGameOutcome.HOME_VICTORY);
+    expectedAmount += FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME 
+        + FootballEarnings.FAVORITE_TEAM_BONUS;
+    explanation += " : résultat +" + FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME;
+    explanation += " bonus équipe favorite +" + FootballEarnings.FAVORITE_TEAM_BONUS;
 
-	pronostic.setScore(new FootballScore(2, 1));
-	expectedAmount += FootballEarnings.SCORE;
-	explanation += " score +" + FootballEarnings.SCORE;
+    pronostic.setScore(new FootballScore(2, 1));
+    expectedAmount += FootballEarnings.SCORE;
+    explanation += " score +" + FootballEarnings.SCORE;
 
-	pronostic.withHomeStrikers(damien, olivier);
-	pronostic.withAwayStrikers(fred);
-	expectedAmount += 3 * FootballEarnings.STRIKER;
-	explanation += " buteurs +" + 3 * FootballEarnings.STRIKER;
+    pronostic.withHomeStrikers(damien, olivier);
+    pronostic.withAwayStrikers(fred);
+    expectedAmount += 3 * FootballEarnings.STRIKER;
+    explanation += " buteurs +" + 3 * FootballEarnings.STRIKER;
 
-	FootballBetEarnings result = FootballEarningsComputer
-		.computeEarnings(pronostic, gameOfTheDay1(), "webdev");
+    FootballBetEarnings result = FootballEarningsComputer
+        .computeEarnings(pronostic, gameOfTheDay1(), "webdev");
 
-	assertThat(result.getAmount()).isEqualTo(expectedAmount);
-	assertThat(result.getGoodPronosticCount()).isEqualTo(1);
-	assertThat(result.getGuessedStrikerCount()).isEqualTo(3);
-	assertThat(result.getGoodPronosticCountForFavoriteTeam()).isEqualTo(1);
-	assertThat(result.getExplanation()).isEqualTo(explanation);
+    assertThat(result.getAmount()).isEqualTo(expectedAmount);
+    assertThat(result.getGoodPronosticCount()).isEqualTo(1);
+    assertThat(result.getGuessedStrikerCount()).isEqualTo(3);
+    assertThat(result.getGoodPronosticCountForFavoriteTeam()).isEqualTo(1);
+    assertThat(result.getExplanation()).isEqualTo(explanation);
 }
 
 private FootballGame game1() {
-	FootballGameResult result = new FootballGameResult().withScore(2, 1);
-	result.setHomeStrikers(new FootballGameStriker(damien, "56'"), new FootballGameStriker(olivier, "87'"));
-	result.setAwayStrikers(new FootballGameStriker(fred, "88'"));
+    FootballGameResult result = new FootballGameResult().withScore(2, 1);
+    result.setHomeStrikers(new FootballGameStriker(damien, "56'"), new FootballGameStriker(olivier, "87'"));
+    result.setAwayStrikers(new FootballGameStriker(fred, "88'"));
 
-	return game("game1", result);
+    return game("game1", result);
 }</code></pre>
       </div>
 
       <div class="step" data-x="100" data-y="4000" data-z="-1500">
-        <span>En Groovy</span>
-<pre class="prettyprint linenums lang-java"><code>import static org.mockito.Mockito.*; 
-import static org.junit.Assert.*;
+        <span>En Groovy...</span>
+<pre class="prettyprint linenums lang-java"><code>@Test
+public void computeEarningsForGame1MaxScore() {
+    FootballBetPronostic pronostic = new FootballBetPronostics(gameId: gameOfTheDay1().id);
+    int expectedAmount = 0;
+    String explanation = "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)";
 
-@Test
-public void iteratorWillReturnHelloWorld(){ 
-	//arrange
-	Iterator i=mock(Iterator.class); 
-	when(i.next()).thenReturn("Hello").thenReturn("World"); 
-	//act
-	String result=i.next()+" "+i.next();
-	//assert
-	assertThat(result).isEqualTo("Hello World");
+    pronostic.setGameOutcome(FootballGameOutcome.HOME_VICTORY);
+    expectedAmount += FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME 
+        + FootballEarnings.FAVORITE_TEAM_BONUS;
+    explanation += " : résultat +" + FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME;
+    explanation += " bonus équipe favorite +" + FootballEarnings.FAVORITE_TEAM_BONUS;
+
+    pronostic.setScore(new FootballScore(2, 1));
+    expectedAmount += FootballEarnings.SCORE;
+    explanation += " score +" + FootballEarnings.SCORE;
+
+    pronostic.withHomeStrikers(damien, olivier);
+    pronostic.withAwayStrikers(fred);
+    expectedAmount += 3 * FootballEarnings.STRIKER;
+    explanation += " buteurs +" + 3 * FootballEarnings.STRIKER;
+
+    FootballBetEarnings result = FootballEarningsComputer
+        .computeEarnings(pronostic, gameOfTheDay1(), "webdev");
+
+    assert result.amount == expectedAmount
+    assert result.goodPronosticsCount == 1
+    assert result.guessedStrikerCount == 3
+    assert result.goodPronosticCountForFavoriteTeam == 1
+    assert result.explanation == explanation
+}
+
+private FootballGame game1() {
+    FootballGameResult result = new FootballGameResult(homeScore: 2, awayScore: 1);
+    result.setHomeStrikers(new FootballGameStriker(player: damien, minute: "56'"), 
+        new FootballGameStriker(player: olivier, minute: "87'"));
+    result.setAwayStrikers(new FootballGameStriker(player: fred, minute: "88'"));
+
+    return new FootballGame(externalId: "game1", result: result, 
+        homeGameTeam: new FootballGameTeam(team: webdev), awayGameTeam: new FootballGameTeam(team: studio));
 }</code></pre>
       </div>
 
       <div class="step" data-x="200" data-y="3000" data-z="-1500">
-        <span>Algorithme</span>
-<pre class="prettyprint linenums lang-java"><code>import static org.mockito.Mockito.*; 
-import static org.junit.Assert.*;
+        <span>Modèle de données & Algorithme</span>
+        <img style="margin-left:80px;margin-top:30px;border:3px solid #398235;" src="img/prono_datamodel.png"/>
+      </div>
 
-@Test
-public void iteratorWillReturnHelloWorld(){ 
-	//arrange
-	Iterator i=mock(Iterator.class); 
-	when(i.next()).thenReturn("Hello").thenReturn("World"); 
-	//act
-	String result=i.next()+" "+i.next();
-	//assert
-	assertThat(result).isEqualTo("Hello World");
+      <div class="step" data-x="200" data-y="3500" data-z="-1500">
+        <span>Calcul des points</span>
+<pre class="prettyprint linenums lang-java"><code>public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, 
+    FootballGame game, String favoriteTeamExternalId) {
+    if (game.getResult() == null || pronostic == null || pronostic.getGameOutcome() == null || 
+        game.isPostponed()) {
+        return null;
+    }
+    FootballBetEarnings result = new FootballBetEarnings();
+    result.setExplanation(game.getLiteralFullResult() + " :");
+
+    if (game.hasOutcome(pronostic.getGameOutcome())) {
+        result.increaseAmount("résultat", game.isGameOfTheDay() ?
+             FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME : FootballEarnings.GAME_OUTCOME);
+        result.setGoodPronosticCount(1);
+
+        if (game.hasTeam(favoriteTeamExternalId)) {
+            result.increaseAmount("bonus équipe favorite", FootballEarnings.FAVORITE_TEAM_BONUS);
+            result.increaseGoodPronosticCountForFavoriteTeam();
+        }
+    } else {
+        result.increaseAmount("résultat", game.isGameOfTheDay() ? 
+            -FootballBetCharges.GAMEOFTHEDAY_GAME_OUTCOME : -FootballBetCharges.GAME_OUTCOME);
+    }
+
+    if (game.isGameOfTheDay()) {
+        if (pronostic.hasScore()) {
+            int scoreEarnings = -FootballBetCharges.SCORE;
+            if (game.hasOutcome(pronostic.getGameOutcome())) {
+                if (game.hasScore(pronostic.getScore())) {
+                    scoreEarnings = FootballEarnings.SCORE;
+                } else {
+                    scoreEarnings = 0;
+                }
+            }
+            result.increaseAmount("score", scoreEarnings);
+        }
+        if (pronostic.hasStrikers()) {
+            result.updateStrikersEarnings(pronostic, game.getResult());
+        }
+    }
+    return result;
+}</code></pre>
+      </div>
+
+      <div class="step" data-x="200" data-y="4000" data-z="-1500">
+        <span>Calcul du rang</span>
+<pre class="prettyprint linenums lang-java"><code>public void computeRankings(FootballMatchDay matchDay) {
+    computeRoundPoints(matchDay);
+    computeRanks(matchDay, Period.ROUND);
+    computeSeasonPoints(matchDay);
+    computeRanks(matchDay, Period.SEASON);
+
+    if (footballSponsorshipService.computeSponsorshipEarnings(matchDay)) {
+        computeRanks(matchDay, Period.ROUND);
+        computeRanks(matchDay, Period.SEASON);
+    }
+}
+
+public void computeRoundPoints(FootballMatchDay matchDay) {
+    for (Gamer gamer : findGamers(matchDay, Period.ROUND)) {
+        FootballRanking ranking = FootballRanking.forMatchDay(matchDay);
+        ranking.setPeriod(Period.ROUND);
+        ranking.setGamer(gamer);
+
+        FootballRanking yesterdayRanking = findYesterdayRank(matchDay, Period.ROUND, gamer);
+
+        if (yesterdayRanking != null) {
+            ranking.readPreviousRank(yesterdayRanking);
+        } else {
+            ranking.setBonus(FootballEarnings.ROUND_START_BONUS);
+            FootballSponsorship sponsorship = footballSponsorshipService.
+                getSponsor(matchDay.getCompetition(), gamer.getProfileId());
+            if (sponsorship != null && !sponsorship.isEarnedRegistrationBonus() 
+                && sponsorship.isDateCompliant(matchDay)) {
+               ranking.addSponsorshipBonus(FootballEarnings.SPONSORED_REGISTRATION);
+            }
+        }
+
+        // today's bet
+        FootballBet bet = footballBetService.findBet(matchDay, gamer.getProfileId());
+        ranking.readBet(bet);
+
+        if (yesterdayRanking != null || bet != null) {
+            if (bet != null && bet.getRank() == 1) {
+                ranking.addReward(new FootballEarnedReward(FootballReward.TROPHEE, matchDay.getIndex()));
+            }
+            updateRank(matchDay, ranking);
+        }
+    }
 }</code></pre>
       </div>
 
       <div class="step" data-x="300" data-y="3000" data-z="-1500">
-	    <span>Prototype Bootstrap</span>
+        <span>Prototype Bootstrap</span>
         <img style="width: 850px" src="img/boot-form.jpg" />
       </div>
 
       <div class="step" data-x="400" data-y="3000" data-z="-1500">
-	    <span>Responsive design</span>
-	    <img style="width: 700px;margin-left: 100px;" src="img/prono_desktop.png" />
-	    <div style="width: 850px; margin-left: 150px;">
-	    	<img style="width: 200px;" src="img/iphone-1.png" />
-	    	<img style="width: 200px;" src="img/iphone-2.png" />
-	    	<img style="width: 200px;" src="img/iphone-3.png" />
-      	</div>
+        <span>Responsive design</span>
+        <img style="width: 700px;margin-left: 100px;" src="img/prono_desktop.png" />
+        <div style="width: 850px; margin-left: 150px;">
+            <img style="width: 200px;" src="img/iphone-1.png" />
+            <img style="width: 200px;" src="img/iphone-2.png" />
+            <img style="width: 200px;" src="img/iphone-3.png" />
+        </div>
       </div>
 
       <div class="step big slide" data-x="500" data-y="3000" data-z="-1600" data-rotate-x="-90">
@@ -289,36 +397,36 @@ public void iteratorWillReturnHelloWorld(){
       </div>
 
       <div class="step" data-x="600" data-y="3000" data-z="-1600">
-	    <div style="float:left;width:300px;">
-	    	<span>Contexte & Besoin</span>
-	    	<br/>
-	    	<ul style="margin-top: 30px;">
-	    		<li>Outil mobile pour envoyer une ébauche d'article avec médias directement dans le CMS</li>
-	    	</ul>
-    	</div>
-    	<img style="float:right;width:300px;" src="img/snappy.png" />
+        <div style="float:left;width:300px;">
+            <span>Contexte & Besoin</span>
+            <br/>
+            <ul style="margin-top: 30px;">
+                <li>Outil mobile pour envoyer une ébauche d'article avec médias directement dans le CMS</li>
+            </ul>
+        </div>
+        <img style="float:right;width:300px;" src="img/snappy.png" />
       </div>
 
       <div class="step" data-x="700" data-y="3000" data-z="-1600">
-	    <span>Utilisation</span>
-	    <br/>
-	    <img style="width:200px;" src="img/snappy_iphone_7.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_1.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_2.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_3.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_8.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_5.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_4.png" />
-    	<img style="width:200px;" src="img/snappy_iphone_6.png" />
+        <span>Utilisation</span>
+        <br/>
+        <img style="width:200px;" src="img/snappy_iphone_7.png" />
+        <img style="width:200px;" src="img/snappy_iphone_1.png" />
+        <img style="width:200px;" src="img/snappy_iphone_2.png" />
+        <img style="width:200px;" src="img/snappy_iphone_3.png" />
+        <img style="width:200px;" src="img/snappy_iphone_8.png" />
+        <img style="width:200px;" src="img/snappy_iphone_5.png" />
+        <img style="width:200px;" src="img/snappy_iphone_4.png" />
+        <img style="width:200px;" src="img/snappy_iphone_6.png" />
       </div>
 
       <div class="step" data-x="800" data-y="3000" data-z="-1600">
-	    <span>Persistence des données</span>
-	    <ul style="margin-top:30px;">
-	    	<li>Framework CoreData</li>
-	    	<li>Gestionnaire de fichiers NSFileManager</li>
-    	</ul>
-	    <img style="margin-left:150px;margin-top:30px;border:3px solid #398235;" src="img/snappy_datamodel.png" />
+        <span>Persistence des données</span>
+        <ul style="margin-top:30px;">
+            <li>Framework CoreData</li>
+            <li>Gestionnaire de fichiers NSFileManager</li>
+        </ul>
+        <img style="margin-left:150px;margin-top:30px;border:3px solid #398235;" src="img/snappy_datamodel.png" />
       </div>
 
       <div class="step" data-x="900" data-y="3000" data-z="-1600">
@@ -355,108 +463,3 @@ sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
-
-public void computeMatchDay(FootballMatchDay matchDay, Date currentDate) {
-        if (!matchDay.isFinishedAt(currentDate)) {
-            throw new IllegalStateException("MatchDay is not finished");
-        }
-
-        Computation computation = Computation.startsNow();
-
-        footballBetService.computeEarnings(matchDay);
-        footballRankingService.computeRankings(matchDay);
-
-        computation.setEndDate(new Date());
-
-        matchDay.setComputation(computation);
-    }
-    
-    public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, FootballGame game, String favoriteTeamExternalId) {
-        FootballBetEarnings result = new FootballBetEarnings();
-
-        if (game.getResult() == null || pronostic == null || pronostic.getGameOutcome() == null || game.isPostponed()) {
-            return null;
-        }
-
-        result.setExplanation(game.getLiteralFullResult() + " :");
-
-        if (game.hasOutcome(pronostic.getGameOutcome())) {
-            result.increaseAmount("résultat", game.isGameOfTheDay() ? FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME : FootballEarnings.GAME_OUTCOME);
-            result.setGoodPronosticCount(1);
-
-            if (game.hasTeam(favoriteTeamExternalId)) {
-                result.increaseAmount("bonus équipe favorite", FootballEarnings.FAVORITE_TEAM_BONUS);
-                result.increaseGoodPronosticCountForFavoriteTeam();
-            }
-        } else {
-            result.increaseAmount("résultat", game.isGameOfTheDay() ? -FootballBetCharges.GAMEOFTHEDAY_GAME_OUTCOME : -FootballBetCharges.GAME_OUTCOME);
-        }
-
-        if (game.isGameOfTheDay()) {
-            if (pronostic.hasScore()) {
-                int scoreEarnings = -FootballBetCharges.SCORE;
-                if (game.hasOutcome(pronostic.getGameOutcome())) {
-                    if (game.hasScore(pronostic.getScore())) {
-                        scoreEarnings = FootballEarnings.SCORE;
-                    } else {
-                        scoreEarnings = 0;
-                    }
-                }
-
-                result.increaseAmount("score", scoreEarnings);
-            }
-
-            if (pronostic.hasStrikers()) {
-                result.updateStrikersEarnings(pronostic, game.getResult());
-            }
-        }
-
-        return result;
-    }
-
-public void computeRankings(FootballMatchDay matchDay) {
-        computeRoundPoints(matchDay);
-        computeRanks(matchDay, Period.ROUND);
-        computeSeasonPoints(matchDay);
-        computeRanks(matchDay, Period.SEASON);
-
-        if (footballSponsorshipService.computeSponsorshipEarnings(matchDay)) {
-            computeRanks(matchDay, Period.ROUND);
-            computeRanks(matchDay, Period.SEASON);
-        }
-    }
-    
-    public void computeRoundPoints(FootballMatchDay matchDay) {
-        for (Gamer gamer : findGamers(matchDay, Period.ROUND)) {
-            FootballRanking ranking = FootballRanking.forMatchDay(matchDay);
-            ranking.setPeriod(Period.ROUND);
-            ranking.setGamer(gamer);
-
-            // yesterday's activity
-            FootballRanking yesterdayRanking = findYesterdayRank(matchDay, Period.ROUND, gamer);
-
-            if (yesterdayRanking != null) {
-                ranking.readPreviousRank(yesterdayRanking);
-            } else {
-                ranking.setBonus(FootballEarnings.ROUND_START_BONUS);
-                FootballSponsorship sponsorship = footballSponsorshipService.getSponsor(matchDay.getCompetition(), gamer.getProfileId());
-                if (sponsorship != null && !sponsorship.isEarnedRegistrationBonus() && sponsorship.isDateCompliant(matchDay)) {
-                   ranking.addSponsorshipBonus(FootballEarnings.SPONSORED_REGISTRATION);
-                }
-            }
-
-            // today's bet
-            FootballBet bet = footballBetService.findBet(matchDay, gamer.getProfileId());
-
-            ranking.readBet(bet);
-
-            if (yesterdayRanking != null || bet != null) {
-
-                if (bet != null && bet.getRank() == 1) {
-                    ranking.addReward(new FootballEarnedReward(FootballReward.TROPHEE, matchDay.getIndex()));
-                }
-
-                updateRank(matchDay, ranking);
-            }
-        }
-    }
