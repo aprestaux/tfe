@@ -164,8 +164,8 @@ code,strong {
 
 pre {
     font-family: "Source Code Pro" !important;
-    font-size: 0.42857em !important;
-    line-height: 1.38em;
+    font-size: 0.38em !important;
+    line-height: 1.2em;
 }
 
 pre code {
@@ -216,66 +216,6 @@ pre {
     position: absolute;
     bottom: -100px;
     right: 0;
-}
-
-.example pre.prettyprint {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.example pre.prettyprint ol {
-    overflow: auto;
-    position: relative;
-}
-
-.example pre.prettyprint ol:before {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 2.2em;
-    background-color: #cecece;
-}
-
-.example pre.prettyprint:after {
-    content: '';
-    display: block;
-    border-radius: 50px;
-    position: absolute;
-    top: 0;
-    left: -65px;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #fff;
-    box-shadow: 0 0 10px #398235;
-}
-
-.example pre.prettyprint.lang-coffeescript:after {
-    background-image: url('../img/coffeescript-logo.svg?1350217712'),-webkit-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
-    background-image: url('../img/coffeescript-logo.svg?1350217712'),-moz-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
-    background-image: url('../img/coffeescript-logo.svg?1350217712'),-o-linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
-    background-image: url('../img/coffeescript-logo.svg?1350217712'),linear-gradient(-45deg, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 100%);
-    background-size: auto 60px;
-    background-position: -10px -2px;
-}
-
-.example pre.prettyprint.lang-javascript:after {
-    content: 'JS';
-    background-image: -webkit-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
-    background-image: -moz-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
-    background-image: -o-linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
-    background-image: linear-gradient(-45deg, #ffa84c 0%,#ff7b0d 100%);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 30px;
-    font-family: 'Lobster';
-    line-height: 1.85em;
-    color: #fff;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
-    text-align: center;
 }
 
 .step {
@@ -378,10 +318,4 @@ pre {
 #step-5 img {
     width: 400px;
     border: 3px solid #398235;
-}
-
-#step-7 img {
-    border: 3px solid #398235;
-    margin-top: 30px;
-    margin-left: 200px;   
 }
