@@ -49,7 +49,7 @@
       </div>
 
        <div class="step" data-x="-550" data-y="3000" data-z="-1600" data-rotate-x="-90">
-        <span>Plus de 20 projets</span>
+        <span>Plus de 20 applications</span>
         <div class="screenshots">
             <img src="img/rtl.png" />
             <img src="img/orlc.png" />
@@ -112,7 +112,7 @@
 
       <div class="step" data-x="100" data-y="3000" data-z="-3000">
         <span>Script Groovy</span>
-        <pre class="prettyprint linenums">
+        <pre class="prettyprint">
 <code>def deployWebapp(String version, String tomcatConfResolver) {
     mkdirs()
 
@@ -123,8 +123,7 @@
     inTempDirectoy { File tempDir ->
         def war = new File(tempDir, "ROOT.war")
 
-        new NexusArtifact(name: name, version: version, extension: 'war')
-            .downloadTo(war)
+        new NexusArtifact(name: name, version: version, extension: 'war').downloadTo(war)
 
         stopTomcat()
 
@@ -195,7 +194,7 @@
 
       <div class="step" data-x="100" data-y="3500" data-z="-1500" data-rotate-x="-180">
         <span>Test first</span>
-<pre class="prettyprint linenums"><code>@Test
+<pre class="prettyprint"><code>@Test
 public void computeEarningsForGame1MaxScore() {
     FootballBetPronostic pronostic = FootballBetPronostic.forGame(gameOfTheDay1());
     int expectedAmount = 0;
@@ -237,7 +236,7 @@ private FootballGame game1() {
 
       <div class="step" data-x="100" data-y="4000" data-z="-1500" data-rotate-x="-180">
         <span>En Groovy...</span>
-<pre class="prettyprint linenums lang-java"><code>@Test
+<pre class="prettyprint"><code>@Test
 public void computeEarningsForGame1MaxScore() {
     FootballBetPronostic pronostic = new FootballBetPronostics(gameId: gameOfTheDay1().id);
     int expectedAmount = 0;
@@ -286,7 +285,7 @@ private FootballGame game1() {
 
       <div class="step" data-x="200" data-y="3500" data-z="-1500" data-rotate-x="-180">
         <span>Calcul des points</span>
-<pre class="prettyprint linenums lang-java"><code>public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, 
+<pre class="prettyprint"><code>public static FootballBetEarnings computeEarnings(FootballBetPronostic pronostic, 
     FootballGame game, String favoriteTeamExternalId) {
     if (game.getResult() == null || pronostic == null || pronostic.getGameOutcome() == null || 
         game.isPostponed()) {
@@ -331,7 +330,7 @@ private FootballGame game1() {
 
       <div class="step" data-x="200" data-y="4000" data-z="-1500" data-rotate-x="-180">
         <span>Calcul du rang</span>
-<pre class="prettyprint linenums lang-java"><code>public void computeRankings(FootballMatchDay matchDay) {
+<pre class="prettyprint"><code>public void computeRankings(FootballMatchDay matchDay) {
     computeRoundPoints(matchDay);
     computeRanks(matchDay, Period.ROUND);
     computeSeasonPoints(matchDay);
@@ -431,7 +430,7 @@ public void computeRoundPoints(FootballMatchDay matchDay) {
 
       <div class="step" data-x="900" data-y="3000" data-z="-1600">
         <span>Interface avec une autre application</span>
-<pre style="margin-top:30px;" class="prettyprint linenums lang-c"><code>//méthode appellée lors d’une ouverture externe
+<pre style="margin-top:30px;" class="prettyprint"><code>//méthode appellée lors d’une ouverture externe
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url 
 sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
