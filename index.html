@@ -238,43 +238,30 @@ private FootballGame game1() {
         <span>En Groovy...</span>
 <pre class="prettyprint"><code>@Test
 public void computeEarningsForGame1MaxScore() {
-    FootballBetPronostic pronostic = new FootballBetPronostics(gameId: gameOfTheDay1().id);
-    int expectedAmount = 0;
-    String explanation = "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)";
+  def pronostic = new FootballBetPronostic(gameId: gameOfTheDay1.id)
+  pronostic.gameOutcome = HOME_VICTORY
+  pronostic.score = new FootballScore(2, 1)
+  pronostic.homeStrikers = [damien, olivier]
+  pronostic.awayStrikers = [fred]
 
-    pronostic.setGameOutcome(FootballGameOutcome.HOME_VICTORY);
-    expectedAmount += FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME 
-        + FootballEarnings.FAVORITE_TEAM_BONUS;
-    explanation += " : résultat +" + FootballEarnings.GAMEOFTHEDAY_GAME_OUTCOME;
-    explanation += " bonus équipe favorite +" + FootballEarnings.FAVORITE_TEAM_BONUS;
+  def earnings = FootballEarningsComputer.computeEarnings(pronostic, gameOfTheDay1, "webdev")
 
-    pronostic.setScore(new FootballScore(2, 1));
-    expectedAmount += FootballEarnings.SCORE;
-    explanation += " score +" + FootballEarnings.SCORE;
-
-    pronostic.withHomeStrikers(damien, olivier);
-    pronostic.withAwayStrikers(fred);
-    expectedAmount += 3 * FootballEarnings.STRIKER;
-    explanation += " buteurs +" + 3 * FootballEarnings.STRIKER;
-
-    FootballBetEarnings result = FootballEarningsComputer
-        .computeEarnings(pronostic, gameOfTheDay1(), "webdev");
-
-    assert result.amount == expectedAmount
-    assert result.goodPronosticsCount == 1
-    assert result.guessedStrikerCount == 3
-    assert result.goodPronosticCountForFavoriteTeam == 1
-    assert result.explanation == explanation
+  assert earnings.amount == GAMEOFTHEDAY_GAME_OUTCOME + FAVORITE_TEAM_BONUS + SCORE + 3 * STRIKER
+  assert earnings.explanation == "Webdev 2-1 Studio (56' Damien, 87' Olivier, 88' Fred)" &lt;&lt;
+      " : résultat +$GAMEOFTHEDAY_GAME_OUTCOME bonus équipe favorite +$FAVORITE_TEAM_BONUS" &lt;&lt;
+      " score +$SCORE buteurs +${3 * STRIKER}"
+  assert earnings.goodPronosticCount == 1
+  assert earnings.guessedStrikerCount == 3
+  assert earnings.goodPronosticCountForFavoriteTeam == 1
 }
 
-private FootballGame game1() {
-    FootballGameResult result = new FootballGameResult(homeScore: 2, awayScore: 1);
-    result.setHomeStrikers(new FootballGameStriker(player: damien, minute: "56'"), 
-        new FootballGameStriker(player: olivier, minute: "87'"));
-    result.setAwayStrikers(new FootballGameStriker(player: fred, minute: "88'"));
+private FootballGame getGameOfTheDay1() {
+  def result = new FootballGameResult(home: 2, away: 1)
+  result.setHomeStrikers damien.at(56), olivier.at(87)
+  result.setAwayStrikers fred.at(88)
 
-    return new FootballGame(externalId: "game1", result: result, 
-        homeGameTeam: new FootballGameTeam(team: webdev), awayGameTeam: new FootballGameTeam(team: studio));
+  return new FootballGame(externalId: "game1", homeTeam: webdev, awayTeam: studio, result: result)
+  	.defineAsGameOfTheDay()
 }</code></pre>
       </div>
 
